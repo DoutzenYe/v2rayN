@@ -521,10 +521,9 @@ namespace v2rayN
         /// <returns></returns>
         public static long Ping(string host)
         {
-            long roundtripTime = 0;
+            long roundtripTime = -1;
             try
             {
-                long totalTime = 0;
                 int timeout = 120;
                 int echoNum = 2;
                 Ping pingSender = new Ping();
@@ -537,10 +536,12 @@ namespace v2rayN
                         {
                             continue;
                         }
-                        totalTime += reply.RoundtripTime;
+                        if (roundtripTime < 0 || reply.RoundtripTime < roundtripTime)
+                        {
+                            roundtripTime = reply.RoundtripTime;
+                        }
                     }
                 }
-                roundtripTime = totalTime / echoNum;
             }
             catch
             {

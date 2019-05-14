@@ -16,7 +16,7 @@ namespace v2rayN
         /// <summary>
         /// Donate
         /// </summary>
-        public const string DonateUrl = @"https://www.paypal.me/CaptainIronNG/18";
+        public const string DonateUrl = @"https://www.paypal.me/CaptainIronN/18";
         /// <summary>
         ///  
         /// </summary>
